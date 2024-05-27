@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<title>INICIO</title>
+			<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+			<link th:rel="stylesheet" th:href="@{/css/estilos.css}">
+	</head>
+	
+	<body>
+		      <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+		             
+		      <header>
+		              <div class="container-fluid fondo">		       
+			              <h1>UNIVERSIDAD GRANDEZA</h1> 		
+			              <img th:src="@{/images/logo-universidad grandeza.png}" class="img-fluid" alt="imagen-logo"> 			          
+			              <h4> "Orden y Progreso"</h4>	                        
+		              </div>     		    
+		      </header>
+		      
+		 <nav class="navbar navbar-expand-lg bg-body-tertiary">
+				  <div class="container-fluid navegador" >
+				      <a class="navbar-brand" href="#">Universidad Grandeza</a>
+				      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				         <span class="navbar-toggler-icon"></span>
+				      </button>
+					    <div class="collapse navbar-collapse" id="navbarNav">
+					      <ul class="navbar-nav">
+							    <li class="nav-item">
+							     	<a class="nav-link" href="#">Inicio</a>
+							    </li>
+						        <li class="nav-item">
+						          	<a class="nav-link" href="#">Acerca De</a>
+						        </li>
+						        <li class="nav-item">
+						         	 <a class="nav-link" href="#">Carreras</a>
+						        </li>
+						         <li class="nav-item">
+						           	 <a class="nav-link" href="#">Noticias</a>
+						         </li>
+						         <li class="nav-item">
+						         	 <a class="nav-link" href="#">Contacto</a>
+						        </li>
+					      </ul>
+					    </div>
+				  </div>
+           </nav>
+           
+           <aside>
+                    
+                  <div class="container-fluid">
+                    <div class="row">
+	                        <div class="col border lateral">
+	                            <br/>
+	                              <h4>Facultad Superior</h4>
+	                              <img th:src="@{/images/logo-fi-unju-.jpg}" class="image" alt="imagen-logo-unju">
+	                              <p><a href="https://www.unju.edu.ar/" class="Info link">click aqui</a></p>    
+	                            <br/>
+	                            <h4> Bibliotecas Digitales</h4>
+	                            <p><a href="https://virtual.unju.edu.ar/bibliotecas/" class="Info link">click aqui</a></p>
+	                            <br/>
+	                            <h4> Horarios Academicos</h4>
+	                            <p><a href=" https://www.fi.unju.edu.ar/secretarias/sec-academica/calendario-academico.html"class="Info link">click aqui</a></p>
+	                            <br/>
+	                            <h4> Becas</h4>
+	                             <p><a href=" http://www.becas.unju.edu.ar/"class="Info link">click aqui</a></p>                                               
+	                            <br/>
+	                        </div>  
+	                        <div class="col-10 contenido">
+	                         <section class="bienvenida">
+	                             <br/>
+	                             <h5>
+	                                   La Universidad Grandeza es una institución reconocida por su excelencia académica y su compromiso con la formación integral de sus estudiantes. 
+	                                   Con una amplia oferta educativa en diversas áreas del conocimiento, se destaca por su infraestructura moderna, profesorado altamente calificado 
+	                                   y oportunidades de aprendizaje en un ambiente dinámico y enriquecedor. ¡Bienvenido a la Universidad Grandeza, donde se cultiva el talento y se fomenta 
+	                                   el crecimiento personal y profesional de sus miembros!
+	                             </h5>                        
+	                         </section>
+	                         <section class="noticias">
+	                             <br/>
+	                             <h3>Noticias Recientes</h3>
+	                             <div class="container">
+	                                <div class="row">
+	                                  <div class="col border">noticia 1</div>
+	                                  <div class="col border">noticia 2</div>
+	                                  <div class="col border">noticia 3</div>
+	                                  <div class="col border">noticia 4</div>                                	                                
+	                                </div>	                             
+	                             </div>
+	                         </section>
+	                        </div>
+	                                                           
+                    </div> 
+                
+                </div> 		                                              
+           </aside>
+           
+            <footer>
+                    <br/>
+                    <div class="container-fluid">
+                       <div class="row">
+                             <div class="col contacto">
+                             
+                                  <br/>
+                                  <img th:src="@{/images/logo-universidad grandeza.png}" class="img" alt="imagen-logo">               
+                  
+                            </div>                        
+                              <div class="col  contacto">
+                                  <br/>
+                                  <img th:src="@{/images/logo-fi-unju-.jpg}" class="img" alt="imagen-logo-unju">                       
+                                  <p></p>
+                                  <p>                                           
+                                                                                
+                                    Universidad Nacional de Jujuy - UNJu
+									Subsecretaría de EaD - Coordinación UNJu Virtual
+									Avda. Bolivia N° 1685 B° Los Huaicos
+									San Salvador de Jujuy, Jujuy - Argentina </p>
+						        </div>
+                         
+                            <div class="col contacto">
+                                   <br/>
+                                   <h5>Redes sociales de la universidad</h5>
+                                <nav>   
+		                             <p> WhatsApp: 3884708223</p>
+		                             <p> Correo: virtual@unju.edu.ar </p>     
+		                             <p> Facebook:
+		                                <a class="redes" href="https://www.facebook.com/unjuvirtual">https://www.facebook.com/unjuvirtual</a> 
+		                            </p>   
+		                             <p> Instagram:
+		                                 <a class="redes" href="https://www.instagram.com/fiunju/">https://www.instagram.com/fiunju/</a> 
+		                            </p>   
+                               </nav>
+                            
+                            </div>
+                    
+                       </div>
+                       
+                             <div class="row">
+                                <div class="col"></div>
+                                <div class="col autor">
+                                     <h6>© 2024 | Universidad Grandeza | Gerardo Ramos</h6> 
+                                </div>
+                                <div class="col"></div>
+                             </div>
+                             
+                                
+                     
+                     </div>
+                    
+           </footer>
+   </body>
+  
+</html>

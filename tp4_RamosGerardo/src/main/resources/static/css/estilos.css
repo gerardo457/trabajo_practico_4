@@ -1,0 +1,57 @@
+@charset "UTF-8";
+body{
+	    background:   #b30000;
+}
+.fondo{
+	    background:  #004080;
+	    color: yellow;
+	    text-align: center;
+	    font-family: fantasy;
+}
+.img-fluid{
+                 max-width: 15%; 
+                 height: auto;
+}
+.navegador{
+				background:  #004080;
+}
+.navbar-brand{
+					 color: yellow;					    
+					 font-family: fantasy;
+}
+.nav-link active{
+                     color: yellow;	
+}
+.nav-link{
+	         color: yellow;
+}
+.image{
+	        max-width: 90%; 
+	        height: 14%;
+}
+
+.lateral{
+	        background:  #004080;
+		    color: yellow;
+		    text-align: left;
+		    font-family: fantasy;
+}
+.contenido{
+	            color: yellow;
+	            text-align: left;
+}
+.contacto{
+	        background:  #004080;
+		    color: yellow;
+		    text-align: left;
+		    font-family: fantasy;	
+}
+.img{
+				    height: 50%;
+				    max-width: 65%;
+				    margin-left: 105px;		    
+}
+.autor{
+	               color: yellow;
+	               text-align: center;
+}
