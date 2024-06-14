@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head data-th-replace="~{/layouts/header :: head}"> </head>
+	
+	<body>
+		    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+		             
+     	
+     	<div class="container-fluid">
+     	    
+     	    <header data-th-replace="~{/layouts/header :: header}"> </header> 
+     	    
+     	    
+     	    <div th:if="${exito}" class="alert alert-success alert-dismissible fade show" role="alert">
+					<strong data-th-text="${mensaje}"></strong>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		    </div>
+		    
+		    <div th:if="${!exito && mensaje !=''}" class="alert alert-danger alert-dismissible fade show" role="alert">
+					<strong data-th-text="${mensaje}"></strong>
+				   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			
+			
+	          <hr/>
+	          <h3 class="titulo_listado"> Listado de Carreras</h3>
+          
+              <a class="btn btn-primary" data-th-href="@{/carrera/nuevo}" role="button">Nueva carrera</a>
+              <hr/>
+	          <div class="container-fluid" style="background-color:   #cce6ff;">
+	            <div class = "row">
+	                  
+			                  <table>
+			            
+							         <tr> 
+							               <th>Codigo</th>
+							               <th>Nombre</th>
+							               <th>Duracion</th>
+							               <th>Estado</th>
+							               <th>Opciones</th>              
+							         </tr>
+							         <tr data-th-each="carre: ${carrera}"> 
+							               <td data-th-text="${carre.codigo}"> </td>
+							               <td data-th-text="${carre.nombre}"></td>	
+							               <td data-th-text="${carre.cantaños} + 'años' "> </td>	
+							               <td>
+							                   <span th:if="${carre.estado}"> Activa</span>
+							                   <span th:if="${!carre.estado}">Inactiva</span>			            
+							               </td>	        
+							               <td>
+							                   <a class="btn btn-warning" data-th-href="@{/carrera/modificar/}+${carre.codigo}" role="button">Editar </a>
+    
+							               <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+											th:data-codCarrera="${carre.codigo}">Eliminar</button>
+							               
+							               </td>
+							               
+							         </tr>
+			            
+			           		 </table>           
+	            	 </div>
+          		</div>
+          <hr/>
+          
+         
+          
+          
+            <footer data-th-replace="~{/layouts/footer :: footer}"></footer>
+ 
+           </div>
+   </body>
+  
+   <div class="modal fade" id=deleteModal tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+				      <div class="modal-header">
+					        <h5 class="modal-title" id="deleteModalLabel">Confirmar Eliminacion</h5>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				      </div>
+				      <div class="modal-body">
+				       		¿Estas seguro que quieres eliminar este elemento?
+				      </div>
+				      <div class="modal-footer">
+					        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+					        <form th:action="@{carrera/eliminar/{codCarrera}(codCarrera=${selectedCodCarrera})}" method="get">
+					              <button type="submit" class="btn btn-danger">Eliminar</button>
+				            </form>
+				      </div>
+			    </div>
+			 </div>
+	  </div>
+	  
+	  <script>
+			document.addEventListener ('DOMContentLoaded', function () {
+			var deleteModal = document.getElementById('deleteModal');
+			deleteModal.addEventListener ('show.bs.modal', function (event) {
+				var button = event.relatedTarget;
+				var codCarrera = button.getAttribute('data-codcarrera');
+				var form = deleteModal.querySelector ('form');
+			    form.setAttribute('action', '/carrera/eliminar/' + codCarrera);
+			});
+		   }) ;
+	 </script>
+	  
+	  
+</html>

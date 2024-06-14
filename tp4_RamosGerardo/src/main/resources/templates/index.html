@@ -1,23 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-	<head>
-			<meta charset="UTF-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<title>UNIVERSIDAD GRANDEZA INICIO</title>
-			<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-			<link th:rel="stylesheet" th:href="@{/css/estilos.css}">
-	</head>
+	<head data-th-replace="~{/layouts/header :: head}"> </head>
 	
 	<body>
 		      <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 		             
-		      <header>
-		              <div class="container-fluid fondo">		       
-			              <h1>UNIVERSIDAD GRANDEZA</h1> 		
-			              <img th:src="@{/images/logo-universidad grandeza.png}" class="img-fluid" alt="imagen-logo"> 			          
-			              <h4> "Orden y Progreso"</h4>	                        
-		              </div>     		    
-		      </header> 
+     	      <header data-th-replace="~{/layouts/header :: header}"> </header> 
 		 
 		 <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
 				  <div class="container-fluid" style="background-color:  #004080;">
@@ -96,59 +84,7 @@
                 </div> 		                                              
            </aside>
            
-            <footer>
-                    <br/>
-                    <div class="container-fluid">
-                       <div class="row">
-                             <div class="col contacto">
-                             
-                                  <br/>
-                                  <img th:src="@{/images/logo-universidad grandeza.png}" class="img" alt="imagen-logo">               
-                  
-                            </div>                        
-                              <div class="col  contacto">
-                                  <br/>
-                                  <img th:src="@{/images/logo-fi-unju-.jpg}" class="img" alt="imagen-logo-unju">                       
-                                  <p></p>
-                                  <p>                                           
-                                                                                
-                                    Universidad Nacional de Jujuy - UNJu
-									Subsecretaría de EaD - Coordinación UNJu Virtual
-									Avda. Bolivia N° 1685 B° Los Huaicos
-									San Salvador de Jujuy, Jujuy - Argentina </p>
-						        </div>
-                         
-                            <div class="col contacto">
-                                   <br/>
-                                   <h5>Redes sociales de la universidad</h5>
-                                <nav>   
-		                             <p> WhatsApp: 3884708223</p>
-		                             <p> Correo: virtual@unju.edu.ar </p>     
-		                             <p> Facebook:
-		                                <a class="redes" href="https://www.facebook.com/unjuvirtual">https://www.facebook.com/unjuvirtual</a> 
-		                            </p>   
-		                             <p> Instagram:
-		                                 <a class="redes" href="https://www.instagram.com/fiunju/">https://www.instagram.com/fiunju/</a> 
-		                            </p>   
-                               </nav>
-                            
-                            </div>
-                    
-                       </div>
-                       
-                             <div class="row">
-                                <div class="col"></div>
-                                <div class="col autor">
-                                     <h6>© 2024 | Universidad Grandeza | Gerardo Ramos</h6> 
-                                </div>
-                                <div class="col"></div>
-                             </div>
-                             
-                                
-                     
-                     </div>
-                    
-           </footer>
+            <footer data-th-replace="~{/layouts/footer :: footer}"></footer>
    </body>
   
 </html>

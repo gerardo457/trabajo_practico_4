@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head data-th-replace="~{/layouts/header :: head}"> </head>
+	
+	<body>
+		    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+		    <div class="container-fluid">         
+	     	    <header data-th-replace="~{/layouts/header :: header}"> </header> 
+	              
+	                   <div th:if="${exito}" class="alert alert-success alert-dismissible fade show" role="alert">
+							<strong data-th-text="${mensaje}"></strong>
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		    			</div>
+		    
+		   				 <div th:if="${!exito && mensaje !=''}" class="alert alert-danger alert-dismissible fade show" role="alert">
+							<strong data-th-text="${mensaje}"></strong>
+				   			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+	                          
+	                    <hr/>
+	         				 <h3 class="titulo_listado"> Listado de Materias</h3>
+	          
+	         				 <a class="btn btn-primary" data-th-href="@{/materia/nuevo}" role="button">Nueva Materia</a>
+	          			<hr/>
+	           
+	                 <div>
+		                  <table class="container-fluid" style="background-color: #cce6ff;">
+	  
+					         <tr> 		
+					               <th>Codigo</th>        
+					               <th>Nombre</th>
+					               <th>Curso</th>
+					               <th>Cantidad de horas</th> 
+					               <th>Modalidad</th>    
+					               <th>Docente</th>
+					               <th>Carrera</th>
+					               <th>Opciones</th>          
+					         </tr>
+					         <tr data-th-each="mat: ${materia}"> 
+					               
+					               <td data-th-text="${mat.codigo}"></td>	
+					               <td data-th-text="${mat.nombre}"></td>	
+					               <td data-th-text="${mat.curso}"></td>	
+					               <td data-th-text="${mat.canthoras + ' horas'}"></td>	
+		          		           <td>
+							               <span th:if="${mat.modalidad}">Virtual</span>
+							               <span th:if="${!mat.modalidad}">Presencial</span>			            
+							      </td> 
+							      <td data-th-text="${mat.docente}"></td>
+							      <td data-th-text="${mat.carrera}"></td>       
+					               <td>
+					                   <a class="btn btn-warning" data-th-href="@{/materia/modificar/}+${mat.codigo}" role="button">Modificar</a>
+					                   
+					                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+										th:data-codMateria="${mat.codigo}">Eliminar</button>
+					               </td>				               
+					         </tr>
+	            
+	             		 </table> 
+        	    	</div>  
+	              
+	            <footer data-th-replace="~{/layouts/footer :: footer}"></footer>
+           </div>
+           
+           
+        <div class="modal fade" id=deleteModal tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+				      <div class="modal-header">
+					        <h5 class="modal-title" id="deleteModalLabel">Confirmar Eliminacion</h5>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				      </div>
+				      <div class="modal-body">
+				       		¿Estas seguro que quieres eliminar este elemento?
+				      </div>
+				      <div class="modal-footer">
+					        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+					        <form th:action="@{materia/eliminar/{codMateria}(codMateria=${selectedCodMateria})}" method="get">
+					              <button type="submit" class="btn btn-danger">Eliminar</button>
+				            </form>
+				      </div>
+			    </div>
+			 </div>
+	  </div>
+	  
+	  <script>
+			document.addEventListener ('DOMContentLoaded', function () {
+			var deleteModal = document.getElementById('deleteModal');
+			deleteModal.addEventListener ('show.bs.modal', function (event) {
+				var button = event.relatedTarget;
+				var codMateria = button.getAttribute('data-codmateria');
+				var form = deleteModal.querySelector ('form');
+			    form.setAttribute('action', '/materia/eliminar/' + codMateria);
+			});
+		   }) ;
+	 </script>
+   </body>
+  
+</html>

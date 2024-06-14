@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head data-th-replace="~{/layouts/header :: head}"> </head>
+	
+	<body>
+		    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+		    <div class="container-fluid">         
+		     	    <header data-th-replace="~{/layouts/header :: header}"> </header> 
+		           
+		                 <div th:if="${exito}" class="alert alert-success alert-dismissible fade show" role="alert">
+							<strong data-th-text="${mensaje}"></strong>
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		    			</div>
+		    
+		   				 <div th:if="${!exito && mensaje !=''}" class="alert alert-danger alert-dismissible fade show" role="alert">
+							<strong data-th-text="${mensaje}"></strong>
+				   			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+		           
+			            <hr/>
+	         				 <h3 class="titulo_listado"> Listado de Alumno</h3>
+	          
+	         				 <a class="btn btn-primary" data-th-href="@{/alumno/nuevo}" role="button">Nuevo Alumno</a>
+	          			<hr/>
+	           
+	                 <div>
+		                  <table class="container-fluid" style="background-color: #cce6ff;">
+	            
+					         <tr> 		
+					               <th>DNI</th>        
+					               <th>Nombre</th>
+					               <th>Apellido</th>
+					               <th>Email</th>
+					               <th>Telefono</th> 
+					               <th>Fecha de nacimiento</th>    
+					               <th>Domicilio</th>
+					               <th>LU</th>
+					               <th>Opciones</th>          
+					         </tr>
+					         <tr data-th-each="alu: ${alumno}"> 
+					               
+					               <td data-th-text="${alu.dni}"></td>	
+					               <td data-th-text="${alu.nombre}"></td>	
+					               <td data-th-text="${alu.apellido}"></td>	
+					               <td data-th-text="${alu.email}"></td>	
+					               <td data-th-text="${alu.tel}"></td>	
+					               <td data-th-text="${alu.fechanacimiento}"></td>		
+					               <td data-th-text="${alu.domicilio}"></td>	
+					               <td data-th-text="${alu.LU}"></td>	
+					          		                    
+					               <td>
+					                   <a class="btn btn-warning" data-th-href="@{/alumno/modificar/}+${alu.LU}" role="button">Modificar</a>
+					                   
+					                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+										th:data-codAlumno="${alu.LU}">Eliminar</button>
+					               </td>				               
+					         </tr>
+	            
+	             		 </table> 
+        	    	</div>   
+		           
+		            <footer data-th-replace="~{/layouts/footer :: footer}"></footer>
+             </div>
+            
+	                      <div class="modal fade" id=deleteModal tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+							  <div class="modal-dialog" role="document">
+								   <div class="modal-content">
+									     <div class="modal-header">
+										     <h5 class="modal-title" id="deleteModalLabel">Confirmar Eliminacion</h5>
+										        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+												     </div>
+												      <div class="modal-body">
+												       		¿Estas seguro que quieres eliminar este elemento?
+												      </div>
+												      <div class="modal-footer">
+										        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+										        <form th:action="@{alumno/eliminar/{codAlumno}(codAlumno=${selectedCodAlumno})}" method="get">
+										              <button type="submit" class="btn btn-danger">Eliminar</button>
+				            				  </form>
+				      					</div>
+			  					  </div>
+							 </div>
+					  </div>
+	  
+	  <script>
+			document.addEventListener ('DOMContentLoaded', function () {
+			var deleteModal = document.getElementById('deleteModal');
+			deleteModal.addEventListener ('show.bs.modal', function (event) {
+				var button = event.relatedTarget;
+				var codAlumno = button.getAttribute('data-codalumno');
+				var form = deleteModal.querySelector ('form');
+			    form.setAttribute('action', '/alumno/eliminar/' + codAlumno);
+			});
+		   }) ;
+	 </script>
+   </body>
+  
+</html>
