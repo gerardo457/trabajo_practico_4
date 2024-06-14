@@ -14,8 +14,8 @@ public static List<Docente> docentes= new ArrayList<Docente>();
 	
 	public static List<Docente> getDocentes(){
 		if(docentes. isEmpty()) {
-			docentes.add (new Docente(1, "luciana", "ramos", "gmail.com", 4223379));
-			docentes.add(new Docente(2, "Pedro", "ramirez", "gmail.com", 4223379));
+			docentes.add (new Docente(1, "Ariel", "Vega", "Vega@gmail.com", 4223379));
+			docentes.add(new Docente(2, "Gustavo", "Sosa", "Gustavososa@gmail.com", 4223379));
 		}
 		return docentes;	
 	}

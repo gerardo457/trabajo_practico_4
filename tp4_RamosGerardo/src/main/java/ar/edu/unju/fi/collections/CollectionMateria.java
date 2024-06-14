@@ -21,8 +21,8 @@ public static List<Materia> materias= new ArrayList<Materia>();
 	
 	public static List<Materia> getMaterias(){
 		if(materias. isEmpty()) {
-			materias.add(new Materia("214", "PE", "1a", 46, true, docente, carrera));
-			materias.add(new Materia("124", "lso", "1a", 42, true, docente, carrera));
+			materias.add(new Materia("20", "PE", "1año", 60, true, docente, carrera));
+			materias.add(new Materia("25", "LSO", "1año", 40, true, docente, carrera));
 		}
 		return materias;	
 	}

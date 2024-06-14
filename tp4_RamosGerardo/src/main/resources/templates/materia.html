@@ -50,7 +50,9 @@
 							      <td data-th-text="${mat.carrera}"></td>       
 					               <td>
 					                   <a class="btn btn-warning" data-th-href="@{/materia/modificar/}+${mat.codigo}" role="button">Modificar</a>
-					                   <a class="btn btn-danger" data-th-href="@{/materia/eliminar/}+${mat.codigo}" role="button">Borrar </a>
+					                   
+					                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+										th:data-codMateria="${mat.codigo}">Eliminar</button>
 					               </td>				               
 					         </tr>
 	            
@@ -59,6 +61,39 @@
 	              
 	            <footer data-th-replace="~{/layouts/footer :: footer}"></footer>
            </div>
+           
+           
+        <div class="modal fade" id=deleteModal tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+				      <div class="modal-header">
+					        <h5 class="modal-title" id="deleteModalLabel">Confirmar Eliminacion</h5>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				      </div>
+				      <div class="modal-body">
+				       		¿Estas seguro que quieres eliminar este elemento?
+				      </div>
+				      <div class="modal-footer">
+					        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+					        <form th:action="@{materia/eliminar/{codMateria}(codMateria=${selectedCodMateria})}" method="get">
+					              <button type="submit" class="btn btn-danger">Eliminar</button>
+				            </form>
+				      </div>
+			    </div>
+			 </div>
+	  </div>
+	  
+	  <script>
+			document.addEventListener ('DOMContentLoaded', function () {
+			var deleteModal = document.getElementById('deleteModal');
+			deleteModal.addEventListener ('show.bs.modal', function (event) {
+				var button = event.relatedTarget;
+				var codMateria = button.getAttribute('data-codmateria');
+				var form = deleteModal.querySelector ('form');
+			    form.setAttribute('action', '/materia/eliminar/' + codMateria);
+			});
+		   }) ;
+	 </script>
    </body>
   
 </html>

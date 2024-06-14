@@ -16,8 +16,8 @@ public class CollectionAlumno {
 	
 	public static List<Alumno> getAlumnos(){
 		if(alumnos. isEmpty()) {
-			alumnos.add(new Alumno(44857346,"Pedro"," Ramos", "pedro@gmail.com", 552345, LocalDate.parse("2001-04-23"), "wafawf", "7632"));
-			alumnos.add(new Alumno(44857346,"Gerardo"," Ramos", "g3rard0ram0s457@gmail.com", 5555555, LocalDate.parse("2003-07-31"), "josedelaiglesia", "7643"));
+			alumnos.add(new Alumno(44857346,"Pedro"," Ramos", "pedro@gmail.com", 552345, LocalDate.parse("2001-04-23"), "escolasticozegada", "132"));
+			alumnos.add(new Alumno(44857346,"Gerardo"," Ramos", "g3rard0ram0s457@gmail.com", 5555555, LocalDate.parse("2003-07-31"), "josedelaiglesia", "133"));
 		}
 		return alumnos;	
 	}
