@@ -12,6 +12,7 @@ public class Materia {
 	private boolean modalidad;
 	@Autowired
 	private Docente docente;
+	@Autowired
     private Carrera carrera;
 
  public Materia(){

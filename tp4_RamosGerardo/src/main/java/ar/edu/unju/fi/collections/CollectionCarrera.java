@@ -34,16 +34,25 @@ public class CollectionCarrera {
 		}
 	}
 	
-	public static void modificar(Carrera carrera) {
-		  for (Carrera carre : carreras) {
-			 if(carrera.getCodigo().compareTo((carre.getCodigo()))==0) {
-				 carre.setNombre(carrera.getNombre());
-				 carre.setCantaños(carrera.getCantaños());
-				 carre.setEstado(carrera.isEstado());
-			 }else {
-				 System.out.println("no se encuentra el codigo de la carrera");
-			 }
-	      }
+	public static void modificar(Carrera carrera) throws Exception {
+		  boolean encontrado=false;
+		  try {
+			  for (Carrera carre : carreras) {
+				 if(carrera.getCodigo().compareTo((carre.getCodigo()))==0) {
+					 carre.setNombre(carrera.getNombre());
+					 carre.setCantaños(carrera.getCantaños());
+					 carre.setEstado(carrera.isEstado());
+					 encontrado=true;
+				 }
+		      }
+			  
+			  if(encontrado==false) {
+				  throw new Exception("La carrera con el codigo " + carrera.getCodigo() + " no existe");
+			  }
+		  }catch (Exception e) {
+			  System.out.print(e.getMessage());
+			  throw e;
+		  }
 		
 	}
 	

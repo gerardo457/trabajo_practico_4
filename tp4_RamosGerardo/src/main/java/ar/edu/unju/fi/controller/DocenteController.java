@@ -20,7 +20,7 @@ public class DocenteController {
 private Docente docente;
 
 	@GetMapping("/listado")
-	public String getcarreraspage(Model model) {
+	public String getdocentespage(Model model) {
 		model.addAttribute("docente",CollectionDocente.getDocentes());
 		model.addAttribute("titulo", "Docentes");
 		model.addAttribute("exito",false);
@@ -40,7 +40,7 @@ private Docente docente;
 	@PostMapping("/guardar")
 	public ModelAndView guardarDocente(@ModelAttribute("docenteedit") Docente docente) {
 		ModelAndView modelView = new ModelAndView("docente");
-		//CollectionDocente.agregardocente(docente);
+		
 		String mensaje;
 		boolean exito= CollectionDocente.agregardocente(docente);
 		if(exito) {
@@ -55,7 +55,7 @@ private Docente docente;
 	}
 	
 	@GetMapping("/modificar/{legajo}")
-	public String getModificarDocentePage(Model model, @PathVariable(value="legajo")int legajo) {
+	public String getModificarDocentePage(Model model, @PathVariable(value="legajo")Integer legajo) {
 		Docente docenteEncontrado = new Docente();
 		boolean edicion = true;
 		docenteEncontrado = CollectionDocente.buscar(legajo);
@@ -66,13 +66,29 @@ private Docente docente;
 	}
 	
 	@PostMapping("/modificar")
-	public String modificarDocente(@ModelAttribute("docenteedit") Docente docente) {
-		CollectionDocente.modificar(docente);
-		return "redirect:/docente/listado";
+	public String modificarDocente(@ModelAttribute("docenteedit") Docente docente, Model model) {
+		boolean exito = false;
+		String mensaje ="";
+		try {
+			  CollectionDocente.modificar(docente);
+			  mensaje = "el docente con el legajo " + docente.getLegajo() +" fue modificado con exito";
+			  exito = true;
+		}catch (Exception e) {
+			  mensaje = e.getMessage();
+			  e.printStackTrace();
+		}
+		//CollectionDocente.modificar(docente);
+		
+		model.addAttribute("docente", CollectionDocente.getDocentes());
+		model.addAttribute("mensaje", mensaje);
+		model.addAttribute("exito", exito);
+		model.addAttribute("titulo", "Docentes");
+		
+		return "docente";
 	}
 	
 	@GetMapping("/eliminar/{legajo}")
-	public String eliminarDocente(@PathVariable(value="legajo") int legajo) {
+	public String eliminarDocente(@PathVariable(value="legajo") Integer legajo) {
 		CollectionDocente.eliminardocente(legajo);
 		return "redirect:/docente/listado";
 	}

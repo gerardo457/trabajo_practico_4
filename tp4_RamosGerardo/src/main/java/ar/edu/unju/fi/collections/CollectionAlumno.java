@@ -16,8 +16,8 @@ public class CollectionAlumno {
 	
 	public static List<Alumno> getAlumnos(){
 		if(alumnos. isEmpty()) {
-			alumnos.add(new Alumno(44857346,"Pedro"," Ramos", "pedro@gmail.com", 552345, LocalDate.parse("2001-04-23"), "escolasticozegada", "132"));
-			alumnos.add(new Alumno(44857346,"Gerardo"," Ramos", "g3rard0ram0s457@gmail.com", 5555555, LocalDate.parse("2003-07-31"), "josedelaiglesia", "133"));
+			alumnos.add(new Alumno(44857346,"Pedro"," Ramos", "pedro@gmail.com", "154472157", LocalDate.parse("2001-04-23"), "escolasticozegada", "132"));
+			alumnos.add(new Alumno(44857346,"Gerardo"," Ramos", "g3rard0ram0s457@gmail.com", "3884472157", LocalDate.parse("2003-07-31"), "josedelaiglesia", "133"));
 		}
 		return alumnos;	
 	}
@@ -35,20 +35,28 @@ public class CollectionAlumno {
 		}
 	}
 	
-	public static void modificar(Alumno alumno) {
-		  for (Alumno alu : alumnos) {
-			 if(alumno.getLU().compareTo(alu.getLU())==0) {
-				 alu.setNombre(alumno.getNombre());
-			     alu.setApellido(alumno.getApellido());
-			     alu.setDomicilio(alumno.getDomicilio());
-			     alu.setFechanacimiento(alumno.getFechanacimiento());
-			     alu.setEmail(alumno.getEmail());
-			     alu.setTel(alumno.getTel());
-			 }else {
-				 System.out.println("no se encuentra");
-			 }
-	      }
-		
+	public static void modificar(Alumno alumno) throws Exception {
+		 boolean encontrado=false;
+		try { 
+			 for (Alumno alu : alumnos) {
+				 if(alumno.getLU().compareTo(alu.getLU())==0) {
+					 alu.setNombre(alumno.getNombre());
+					 alu.setApellido(alumno.getApellido());
+					 alu.setDomicilio(alumno.getDomicilio());
+					 alu.setFechanacimiento(alumno.getFechanacimiento());
+					 alu.setEmail(alumno.getEmail());
+					 alu.setTel(alumno.getTel());
+					 encontrado=true;
+			       }
+			  }
+			  
+			 if(encontrado==false) {							
+				 throw new Exception("El alumno con el codigo " + alumno.getLU() + " no existe");				 
+			  }
+		}catch (Exception e) {
+			System.out.print(e.getMessage());
+		    throw e;
+		}
 	}
 	
 	public static Alumno buscar(String lu) {

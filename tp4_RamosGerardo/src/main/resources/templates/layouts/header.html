@@ -8,12 +8,23 @@
 			<link th:rel="stylesheet" data-th-href="@{/css/estilos.css}">
 	</head>
 	<body>
-	      <header th:fragment="header">
-		            <div class="container-fluid fondo">		       
-				              <h1>UNIVERSIDAD GRANDEZA</h1> 		
-				              <img th:src="@{/images/logo-universidad grandeza.png}" class="img-fluid" alt="imagen-logo"> 			          
-				              <h4> "Orden y Progreso"</h4>	                        
-			        </div>     
-	      </header>
+	        
+	      <header th:fragment="header" class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+	             <div class="container-fluid fondo">
+	                   <div class="row">
+	                       <div class="col">
+	                         <img th:src="@{/images/unju_logo.png}" class="img-fluid" alt="imagen-logo"> 
+	                       </div>
+		                       <div class="col">
+		                             <br>
+		                             <h1 style="text-align: left;">Universidad Nacional de Jujuy</h1>  
+		                             <br>              
+		                             <h4 style="text-align: left;"> "Orden y Progreso"</h4>   
+		                       </div>
+	                   </div>
+	             
+	                     
+	              </div>         
+        </header>
 	</body>
 </html>
