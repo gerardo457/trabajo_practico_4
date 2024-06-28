@@ -4,87 +4,165 @@
 	
 	<body>
 		      <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
-		             
+		     
+		     
+		     
+		 <div class="container-fluid"> 
+		   
      	      <header data-th-replace="~{/layouts/header :: header}"> </header> 
-		 
-		 <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-				  <div class="container-fluid" style="background-color:  #004080;">
-				      <a class="navbar-brand" href="#">Universidad Grandeza</a>
-				      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				         <span class="navbar-toggler-icon"></span>
-				      </button>
-					    <div class="collapse navbar-collapse" id="navbarNav">
-					      <ul class="navbar-nav">
-							    <li class="nav-item">
-							     	<a class="nav-link" href="#">Inicio</a>
-							    </li>
-						        <li class="nav-item">
-						          	<a class="nav-link" href="#">Acerca De</a>
-						        </li>
-						        <li class="nav-item">
-						         	 <a class="nav-link" href="#">Carreras</a>
-						        </li>
-						         <li class="nav-item">
-						           	 <a class="nav-link" href="#">Noticias</a>
-						         </li>
-						         <li class="nav-item">
-						         	 <a class="nav-link" href="#">Contacto</a>
-						        </li>
-					      </ul>
-					    </div>
-				  </div>
-           </nav>
-         
-           <aside>
-                    
-                  <div class="container-fluid">
-                    <div class="row">
-	                        <div class="col lateral">
-	                            <br/>
-	                              <h4>Facultad Superior</h4>
-	                              <img th:src="@{/images/logo-fi-unju-.jpg}" class="image" alt="imagen-logo-unju">
-	                              <p><a href="https://www.unju.edu.ar/" class="Info link">click aqui</a></p>    
-	                            <br/>
-	                            <h4> Bibliotecas Digitales</h4>
-	                            <p><a href="https://virtual.unju.edu.ar/bibliotecas/" class="Info link">click aqui</a></p>
-	                            <br/>
-	                            <h4> Horarios Academicos</h4>
-	                            <p><a href=" https://www.fi.unju.edu.ar/secretarias/sec-academica/calendario-academico.html"class="Info link">click aqui</a></p>
-	                            <br/>
-	                            <h4> Becas</h4>
-	                             <p><a href=" http://www.becas.unju.edu.ar/"class="Info link">click aqui</a></p>                                               
-	                            <br/>
-	                        </div>  
-	                        <div class="col-10 contenido">
-	                         <section class="bienvenida">
-	                             <br/>
-	                             <h5>
-	                                   La Universidad Grandeza es una institución reconocida por su excelencia académica y su compromiso con la formación integral de sus estudiantes. 
-	                                   Con una amplia oferta educativa en diversas áreas del conocimiento, se destaca por su infraestructura moderna, profesorado altamente calificado 
-	                                   y oportunidades de aprendizaje en un ambiente dinámico y enriquecedor. ¡Bienvenido a la Universidad Grandeza, donde se cultiva el talento y se fomenta 
-	                                   el crecimiento personal y profesional de sus miembros!
-	                             </h5>                        
-	                         </section>
-	                         <section class="noticias">
-	                             <br/>
-	                             <h3>Noticias Recientes</h3>
-	                             <div class="container">
-	                                <div class="row">
-	                                  <div class="col border">noticia 1</div>
-	                                  <div class="col border">noticia 2</div>
-	                                  <div class="col border">noticia 3</div>
-	                                  <div class="col border">noticia 4</div>                                	                                
-	                                </div>	                             
-	                             </div>
-	                         </section>
-	                        </div>
-	                                                           
-                    </div> 
-                
-                </div> 		                                              
-           </aside>
-           
-            <footer data-th-replace="~{/layouts/footer :: footer}"></footer>
+		        <section>               
+				 <nav class="navbar navbar-expand-lg" style="background-color:  #004080;">
+						  <div class="container-fluid">
+						      <a class="navbar-brand" style="color:yellow;" href="#">UNJU</a>
+							      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+							         <span class="navbar-toggler-icon"></span>
+							      </button>
+							   <div class="collapse navbar-collapse" id="navbarNav">
+							      <ul class="navbar-nav">
+									    <li class="nav-item">
+									     	<a class="nav-link" style="color:yellow;"  href="#">Inicio</a>
+									    </li>
+								        <li class="nav-item">
+								          	<a class="nav-link" style="color:yellow;"  href="#">Acerca De</a>
+								        </li>
+								        <li class="nav-item">
+								         	 <a class="nav-link" style="color:yellow;" href="#">Carreras</a>
+								        </li>
+								         <li class="nav-item">
+								           	 <a class="nav-link" style="color:yellow;" href="#">Noticias</a>
+								         </li>
+								         <li class="nav-item">
+								         	 <a class="nav-link" style="color:yellow;" href="#">Contacto</a>
+								        </li>
+							      </ul>
+							    </div>
+						  </div>
+		           </nav>
+		           <br>
+		         </section>
+		         
+		           <aside>	              
+		                  <div class="container-fluid">
+		                  	  <div class="row">
+			                       	 <div class="col lateral">		                                            	  
+									     <ul class="list-unstyled">
+										        <li>
+									               <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://www.unju.edu.ar/" target="_blank">				          
+											           <div class="col">
+											               <img th:src="@{/images/logo-fi-unju-.jpg}" class="img-fluid" width="100" height="100" alt="imagen-logo-unju">
+											               <h6 class="mb-0" style="color: yellow;">Pagina Principal</h6>
+											               <small class="text-primary">Accede a la Pagina Principal</small>
+											           </div>
+											         
+										           </a>
+										          </li>
+										          <li>
+											         <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://www.fi.unju.edu.ar/secretarias/sec-academica/calendario-academico.html" target="_blank">										        
+											            <div class="col">
+											            	 <h6 class="mb-0" style="color: yellow;">Calendario Académico</h6>
+											           		 <small class="text-primary">Accede al Calendario Academico</small>
+											            </div>
+											         </a>
+										          </li>
+										          <li>
+									               <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://virtual.unju.edu.ar/bibliotecas/" target="_blank">					        	   
+											            <div class="col">
+											               <h6 class="mb-0" style="color: yellow;">Biblioteca Virtual</h6>
+											               <small class="text-primary">Accede a múltiples bibliotecas digitales</small>
+											            </div>
+										           </a>
+										          </li>
+										          <li>
+									               <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="http://www.becas.unju.edu.ar/" target="_blank">
+										          	 
+											            <div class="col">
+											               <h6 class="mb-0" style="color: yellow;">Becas</h6>
+											               <small class="text-primary">Accede a Becas</small>
+											            </div>
+										           </a>
+										          </li>
+										          <li>
+									               <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://alumnos.unju.edu.ar/unju/" target="_blank">
+										          	  
+											             <div class="col"> 
+											               <h6 class="mb-0" style="color: yellow;">Sistema Guarani</h6>
+											               <small class="text-primary">Accede al sistema de nuestra universidad</small>
+											            </div> 
+										           </a>
+										          </li>
+										  
+									        </ul>
+			                        </div>  
+			                        <div class="col-10">	
+			                         
+			                           <section class="mb-3">
+								                <div class="card shadow-sm">
+								                    <div class="card-body">
+								                        <h2 class="card-title mb-3">Universidad Nacional de Jujuy - UNJU</h2>
+									                             <p class="card-text">
+									                                   La Universidad Nacional de Jujuy es una institución reconocida por su excelencia académica y su compromiso con la formación integral de sus estudiantes. 
+									                                   Con una amplia oferta educativa en diversas áreas del conocimiento, se destaca por su infraestructura moderna, profesorado altamente calificado 
+									                                   y oportunidades de aprendizaje en un ambiente dinámico y enriquecedor. ¡Bienvenido a la Universidad Grandeza, donde se cultiva el talento y se fomenta 
+									                                   el crecimiento personal y profesional de sus miembros!
+									                             </p>                         
+								                    </div>
+						               		   </div>
+               						    </section>	   
+               						    
+               						                       
+					                         <section class="noticias">
+					                             <br>
+					                             	
+					                           		  <div class="container">
+						                           		  <h3 style="color: yellow;">Noticias Recientes</h3>
+						                           		  <br>
+					                            	   	<div class="row">
+					                                		  <div class="col">
+						                                		    <div class="card" style="width: 22rem;">
+																		  <div class="card-body">
+																		    <h5 class="card-title">SE ENCUENTRAN ABIERTAS LAS INSCRIPCIONES A LA DIPLOMATURA UNIVERSITARIA CONTRA LA VIOLENCIA DE GÉNERO</h5>
+																		    <p class="card-text">Se encuentran abiertas las inscripciones a la Diplomatura Universitaria Contra la Violencia de Género, que cuenta con el 
+																		                         aval de organismos internacionales, nacionales y el respaldo de la UNJu, y que tiene el objetivo de fortalecer redes comunitarias 
+																		                         que apoyan a mujeres en situación de violencia.</p>
+																		    <a href="https://noticias.unju.edu.ar/noticia.php?id=4402" class="btn btn-primary">Mas informacion</a>
+																		  </div>
+																	</div>
+					                                		  </div>
+							                                  <div class="col">
+							                                      <div class="card" style="width: 22rem;">
+																	  <div class="card-body">
+																	    <h5 class="card-title">CONVOCATORIA PARA LA PRESENTACIÓN DE MODALIDADES DE INVESTIGACIÓN Y DESARROLLO TECNOLÓGICOS DE GRUPOS DE INVESTIGACIÓN DE LA UNJU</h5>
+																	    <p class="card-text">Las propuestas de investigaciones se deberán formular únicamente a través de la plataforma SIGEVA_UNJu, la convocatoria estará abierta
+																	                         desde 19/06 hasta 26/08/2024 inclusive.</p>
+																	    <a href="https://noticias.unju.edu.ar/noticia.php?id=4404" class="btn btn-primary">Mas informacion</a>
+																	  </div>
+															</div>
+							                                   
+							                                  </div>
+							                                  <div class="col">
+							                                        <div class="card" style="width: 22rem;">
+																	  <div class="card-body">
+																	    <h5 class="card-title">SE ENCUENTRAN ABIERTAS LAS INSCRIPCIONES PARA EL CICLO DE TALLERES INFANTILES DE LA UNJU</h5>
+																	    <p class="card-text">Las actividades están destinadas a niños y niñas de 7 a doce años y se desarrollarán la Av. Fuerza Aérea N°67 del Barrio Alto Comedero.</p>
+																	    <a href="https://noticias.unju.edu.ar/noticia.php?id=4401" class="btn btn-primary">Mas informacion</a>
+																	  </div>
+																</div>
+							                                        
+							                                  </div>
+							                                                               	                                
+					                                  </div>	                             
+					                               </div>
+					                         </section>
+			                        </div>
+			                                                           
+		                    </div> 
+		                
+		                </div> 		                                              
+		           </aside>
+		           
+		            <footer data-th-replace="~{/layouts/footer :: footer}"></footer>
+            
+        </div>
    </body>
   
 </html>

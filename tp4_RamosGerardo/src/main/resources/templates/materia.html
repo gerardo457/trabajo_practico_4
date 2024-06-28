@@ -4,61 +4,72 @@
 	
 	<body>
 		    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
-		    <div class="container-fluid">         
+		    <div class="container-fluid">     
+		        
 	     	    <header data-th-replace="~{/layouts/header :: header}"> </header> 
 	              
-	                   <div th:if="${exito}" class="alert alert-success alert-dismissible fade show" role="alert">
-							<strong data-th-text="${mensaje}"></strong>
-							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		    			</div>
-		    
-		   				 <div th:if="${!exito && mensaje !=''}" class="alert alert-danger alert-dismissible fade show" role="alert">
-							<strong data-th-text="${mensaje}"></strong>
-				   			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-						</div>
-	                          
-	                    <hr/>
-	         				 <h3 class="titulo_listado"> Listado de Materias</h3>
-	          
-	         				 <a class="btn btn-primary" data-th-href="@{/materia/nuevo}" role="button">Nueva Materia</a>
-	          			<hr/>
-	           
-	                 <div>
-		                  <table class="container-fluid" style="background-color: #cce6ff;">
-	  
-					         <tr> 		
-					               <th>Codigo</th>        
-					               <th>Nombre</th>
-					               <th>Curso</th>
-					               <th>Cantidad de horas</th> 
-					               <th>Modalidad</th>    
-					               <th>Docente</th>
-					               <th>Carrera</th>
-					               <th>Opciones</th>          
-					         </tr>
-					         <tr data-th-each="mat: ${materia}"> 
-					               
-					               <td data-th-text="${mat.codigo}"></td>	
-					               <td data-th-text="${mat.nombre}"></td>	
-					               <td data-th-text="${mat.curso}"></td>	
-					               <td data-th-text="${mat.canthoras + ' horas'}"></td>	
-		          		           <td>
-							               <span th:if="${mat.modalidad}">Virtual</span>
-							               <span th:if="${!mat.modalidad}">Presencial</span>			            
-							      </td> 
-							      <td data-th-text="${mat.docente}"></td>
-							      <td data-th-text="${mat.carrera}"></td>       
-					               <td>
-					                   <a class="btn btn-warning" data-th-href="@{/materia/modificar/}+${mat.codigo}" role="button">Modificar</a>
-					                   
-					                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
-										th:data-codMateria="${mat.codigo}">Eliminar</button>
-					               </td>				               
-					         </tr>
-	            
-	             		 </table> 
-        	    	</div>  
+	             <main>
+		             <div class="row">
+		                <div class="col col-sm-12 fondo-form p-5">
+		                   <div class="row mb-5">
 	              
+				                   <div th:if="${exito}" class="alert alert-success alert-dismissible fade show" role="alert">
+										<strong data-th-text="${mensaje}"></strong>
+										<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					    			</div>
+					    
+					   				 <div th:if="${!exito && mensaje !=''}" class="alert alert-danger alert-dismissible fade show" role="alert">
+										<strong data-th-text="${mensaje}"></strong>
+							   			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+									</div>
+				                          
+				                    
+				         				 <h3 style="color: yellow; text-align: center;"> Listado de Materias</h3>
+				                         <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-2">
+				         				     <a class="btn btn-primary" data-th-href="@{/materia/nuevo}" role="button">Nueva Materia</a>
+				          			     </div>
+				           
+				                 <div>
+					                  <table class="container-fluid" style="background-color: #cce6ff;">
+				  
+								         <tr> 		
+								               <th>Codigo</th>        
+								               <th>Nombre</th>
+								               <th>Curso</th>
+								               <th>Cantidad de horas</th> 
+								               <th>Modalidad</th>    
+								               <th>Docente</th>
+								               <th>Carrera</th>
+								               <th>Opciones</th>          
+								         </tr>
+								         <tr data-th-each="mat: ${materia}"> 
+								               
+								               <td data-th-text="${mat.codigo}"></td>	
+								               <td data-th-text="${mat.nombre}"></td>	
+								               <td data-th-text="${mat.curso}"></td>	
+								               <td data-th-text="${mat.canthoras + ' horas'}"></td>	
+					          		           <td>
+										               <span th:if="${mat.modalidad}">Virtual</span>
+										               <span th:if="${!mat.modalidad}">Presencial</span>			            
+										      </td>
+										      
+										   		 	 <td data-th-text="${mat.docente.nombre +' '+ mat.docente.apellido}"></td> 
+												     <td data-th-text="${mat.carrera.nombre}"></td>       
+								               <td>
+								                   <a class="btn btn-warning" data-th-href="@{/materia/modificar/}+${mat.codigo}" role="button">Modificar</a>
+								                   
+								                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+													th:data-codMateria="${mat.codigo}">Eliminar</button>
+								               </td>				               
+								         </tr>
+				            
+				             		 </table> 
+			        	    	   </div>  
+			        	    	   
+			        	    	 </div>
+		        	    	</div>
+		        	   </div>
+	               </main>
 	            <footer data-th-replace="~{/layouts/footer :: footer}"></footer>
            </div>
            

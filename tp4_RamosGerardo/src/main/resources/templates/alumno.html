@@ -4,61 +4,76 @@
 	
 	<body>
 		    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+		   
 		    <div class="container-fluid">         
-		     	    <header data-th-replace="~{/layouts/header :: header}"> </header> 
-		           
-		                 <div th:if="${exito}" class="alert alert-success alert-dismissible fade show" role="alert">
-							<strong data-th-text="${mensaje}"></strong>
-							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		    			</div>
 		    
-		   				 <div th:if="${!exito && mensaje !=''}" class="alert alert-danger alert-dismissible fade show" role="alert">
-							<strong data-th-text="${mensaje}"></strong>
-				   			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-						</div>
-		           
-			            <hr/>
-	         				 <h3 class="titulo_listado"> Listado de Alumno</h3>
-	          
-	         				 <a class="btn btn-primary" data-th-href="@{/alumno/nuevo}" role="button">Nuevo Alumno</a>
-	          			<hr/>
-	           
-	                 <div>
-		                  <table class="container-fluid" style="background-color: #cce6ff;">
-	            
-					         <tr> 		
-					               <th>DNI</th>        
-					               <th>Nombre</th>
-					               <th>Apellido</th>
-					               <th>Email</th>
-					               <th>Telefono</th> 
-					               <th>Fecha de nacimiento</th>    
-					               <th>Domicilio</th>
-					               <th>LU</th>
-					               <th>Opciones</th>          
-					         </tr>
-					         <tr data-th-each="alu: ${alumno}"> 
-					               
-					               <td data-th-text="${alu.dni}"></td>	
-					               <td data-th-text="${alu.nombre}"></td>	
-					               <td data-th-text="${alu.apellido}"></td>	
-					               <td data-th-text="${alu.email}"></td>	
-					               <td data-th-text="${alu.tel}"></td>	
-					               <td data-th-text="${alu.fechanacimiento}"></td>		
-					               <td data-th-text="${alu.domicilio}"></td>	
-					               <td data-th-text="${alu.LU}"></td>	
-					          		                    
-					               <td>
-					                   <a class="btn btn-warning" data-th-href="@{/alumno/modificar/}+${alu.LU}" role="button">Modificar</a>
-					                   
-					                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
-										th:data-codAlumno="${alu.LU}">Eliminar</button>
-					               </td>				               
-					         </tr>
-	            
-	             		 </table> 
-        	    	</div>   
-		           
+		     	 <header data-th-replace="~{/layouts/header :: header}"> </header> 
+		            
+		            <main>
+		                <div class="row">
+		                      <div class="col col-sm-12 fondo-form p-5">
+		                          <div class="row mb-5">
+		                           
+						                 <div th:if="${exito}" class="alert alert-success alert-dismissible fade show" role="alert">
+											<strong data-th-text="${mensaje}"></strong>
+											<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						    			</div>
+						    			
+						    
+						   				 <div th:if="${!exito && mensaje !=''}" class="alert alert-danger alert-dismissible fade show" role="alert">
+											<strong data-th-text="${mensaje}"></strong>
+								   			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+										</div>
+						           
+							            
+					         				 
+					         				 <h3 style="color: yellow; text-align: center;"> Listado de Alumnos</h3>
+					                        
+					                         <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-2">
+												 <a class="btn btn-primary" data-th-href="@{/alumno/nuevo}" role="button">Nuevo Alumno</a>
+											 </div>
+					         				
+					          		
+					           
+					                 <div>
+						                  <table class="container-fluid" style="background-color: #cce6ff;">
+					            
+									         <tr> 		
+									               <th>DNI</th>        
+									               <th>Nombre</th>
+									               <th>Apellido</th>
+									               <th>Email</th>
+									               <th>Telefono</th> 
+									               <th>Fecha de nacimiento</th>    
+									               <th>Domicilio</th>
+									               <th>LU</th>
+									               <th>Opciones</th>          
+									         </tr>
+									         <tr data-th-each="alu: ${alumno}"> 
+									               
+									               <td data-th-text="${alu.dni}"></td>	
+									               <td data-th-text="${alu.nombre}"></td>	
+									               <td data-th-text="${alu.apellido}"></td>	
+									               <td data-th-text="${alu.email}"></td>	
+									               <td data-th-text="${alu.tel}"></td>	
+									               <td data-th-text="${alu.fechanacimiento}"></td>		
+									               <td data-th-text="${alu.domicilio}"></td>	
+									               <td data-th-text="${alu.LU}"></td>	
+									          		                    
+									               <td>
+									                   <a class="btn btn-warning" data-th-href="@{/alumno/modificar/}+${alu.LU}" role="button">Modificar</a>
+									                   
+									                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+														th:data-codAlumno="${alu.LU}">Eliminar</button>
+									               </td>				               
+									         </tr>
+					            
+					             		 </table> 
+				        	    	</div>   
+			        	    	 </div>
+		        	    	</div>
+	        	        </div>
+		           </main>
 		            <footer data-th-replace="~{/layouts/footer :: footer}"></footer>
              </div>
             

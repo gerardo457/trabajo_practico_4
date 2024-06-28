@@ -10,7 +10,7 @@ public class Alumno {
 	private String nombre;
 	private String apellido;
 	private String email;
-	private int tel;
+	private String tel;
 	private LocalDate fechanacimiento;
 	private String domicilio;
 	private String LU;
@@ -19,7 +19,7 @@ public Alumno() {
 	
 }
 
-public Alumno(int dni, String nombre, String apellido, String email, int tel, LocalDate fechanacimiento,
+public Alumno(int dni, String nombre, String apellido, String email, String tel, LocalDate fechanacimiento,
 		String domicilio, String lU) {
 	this.dni = dni;
 	this.nombre = nombre;
@@ -63,11 +63,11 @@ public void setEmail(String email) {
 	this.email = email;
 }
 
-public int getTel() {
+public String getTel() {
 	return tel;
 }
 
-public void setTel(int tel) {
+public void setTel(String tel) {
 	this.tel = tel;
 }
 
@@ -94,4 +94,5 @@ public String getLU() {
 public void setLU(String lU) {
 	LU = lU;
 }
+
 }

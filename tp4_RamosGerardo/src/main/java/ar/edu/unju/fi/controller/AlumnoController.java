@@ -65,9 +65,24 @@ private Alumno alumno;
 	}
 	
 	@PostMapping("/modificar")
-	public String modificarAlumno(@ModelAttribute("alumnoedit") Alumno alumno) {
-	CollectionAlumno.modificar(alumno);
-	return "redirect:/alumno/listado";
+	public String modificarAlumno(@ModelAttribute("alumnoedit") Alumno alumno, Model model){
+		String mensaje;
+		boolean exito = false;
+		try {
+			  CollectionAlumno.modificar(alumno);
+			  mensaje = "el alumno con el codigo " + alumno.getLU() +" fue modificado con exito";
+			  exito = true;
+		}catch (Exception e) {
+			  mensaje = e.getMessage();
+			  e.printStackTrace();
+		}
+		
+		model.addAttribute("alumno", CollectionAlumno.getAlumnos());
+		model.addAttribute("mensaje", mensaje);
+		model.addAttribute("exito", exito);
+		model.addAttribute("titulo", "Alumnos");
+		
+		return "alumno";
 	}
 	
 	@GetMapping("/eliminar/{lu}")

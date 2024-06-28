@@ -34,7 +34,7 @@ private Carrera carrera;
 		boolean edicion = false;
 		model.addAttribute("carreras",carrera);
 	    model.addAttribute("edicion", edicion);
-	    model.addAttribute("titulo","nueva carrera");
+	    model.addAttribute("titulo","Nueva carrera");
 	    return "carreras";
 	}
 	 
@@ -67,9 +67,24 @@ private Carrera carrera;
 	}
 	
 	@PostMapping("/modificar")
-	public String modificarCarrera(@ModelAttribute("carreras") Carrera carrera) {
-		CollectionCarrera.modificar(carrera);
-		return "redirect:/carrera/listado";
+	public String modificarCarrera(@ModelAttribute("carreras") Carrera carrera, Model model) {
+		String mensaje;
+		boolean exito = false;
+		try {
+			  CollectionCarrera.modificar(carrera);
+			  mensaje = "la carrera con el codigo " + carrera.getCodigo() +" fue modificado con exito";
+			  exito = true;
+		}catch (Exception e) {
+			  mensaje = e.getMessage();
+			  e.printStackTrace();
+		}
+		
+		model.addAttribute("carrera", CollectionCarrera.getCarreras());
+		model.addAttribute("mensaje", mensaje);
+		model.addAttribute("exito", exito);
+		model.addAttribute("titulo", "Carreras");
+		
+		return "carrera";
 	}
 	
 	@GetMapping("/eliminar/{codigo}")

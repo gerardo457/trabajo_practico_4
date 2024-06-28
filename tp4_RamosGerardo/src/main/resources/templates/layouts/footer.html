@@ -2,54 +2,56 @@
 <html xmlns:th="http://www.thumeLeaf.org" lang="es">
 		<head data-th-replace="∼{/layouts/header :: head}"></head>
 		<body>
-		      <footer th:fragment="footer">
-					   <br/>
+		
+		    <footer th:fragment="footer" class="pt-3 my-3 text-muted border-top">
+		    
 			           <div class="container-fluid">
 			                <div class="row">
-			                    <div class="col contacto">
-			                            
-			                         <br/>
-			                             <img th:src="@{/images/logo-universidad grandeza.png}" class="img" alt="imagen-logo">               
-			                  
-			                    </div>                        
-			                              <div class="col  contacto">
-			                              <br/>
-			                              <img th:src="@{/images/logo-fi-unju-.jpg}" class="img" alt="imagen-logo-unju">                       
-			                              <p></p>
-			                                 <p>                                           
-			                                    Universidad Nacional de Jujuy - UNJu
-												Subsecretaría de EaD - Coordinación UNJu Virtual
-												Avda. Bolivia N° 1685 B° Los Huaicos
-												San Salvador de Jujuy, Jujuy - Argentina </p>
-									       </div>
-			                         
-			                            <div class="col contacto">
-			                                   <br/>
-			                                   <h5>Redes sociales de la universidad</h5>
-			                                <nav>   
-					                             <p> WhatsApp: 3884708223</p>
-					                             <p> Correo: virtual@unju.edu.ar </p>     
-					                             <p> Facebook:
-					                                <a class="redes" href="https://www.facebook.com/unjuvirtual">https://www.facebook.com/unjuvirtual</a> 
-					                            </p>   
-					                             <p> Instagram:
-					                                 <a class="redes" href="https://www.instagram.com/fiunju/">https://www.instagram.com/fiunju/</a> 
-					                            </p>   
-			                               </nav>
-			                            
-			                            </div>
+				                    <div class="col" style =" background:  #004080;">
+				                            
+				                         <br/>
+				                             <img th:src="@{/images/unju_logo.png}" class="img" alt="imagen-logo">               
+				                  
+				                    </div>    
+				                                        
+				                    <div class="col-md-4 d-flex flex-column align-items-start" style =" background:  #004080;">
+				                              <br>
+				                              <img th:src="@{/images/logo-fi-unju-.jpg}" class="img" alt="imagen-logo-unju">                       
+				                              <p></p>
+				                                 <p style="color: yellow;">                                           
+				                                    Universidad Nacional de Jujuy - UNJu
+													Subsecretaría de EaD - Coordinación UNJu Virtual
+													Avda. Bolivia N° 1685 B° Los Huaicos
+													San Salvador de Jujuy, Jujuy - Argentina </p>
+							       </div>
+				                         
+				                   <div class="col-md-4 d-flex flex-column align-items-start" style =" background:#004080; color: yellow;">
+				                                   <br>
+				                                       <h4>Redes sociales de la universidad</h4>
+				                                 
+				                                      <ul class="list-group">
+															  <li class="list-group-item" style =" background:  #004080;">
+															 	 <p style="color: yellow;">WhatsApp: 3884708223</p>
+															  </li>
+															  <li class="list-group-item" style =" background:  #004080;">
+															     <p style="color: yellow;">Correo: virtual@unju.edu.ar </p>
+															  </li>
+															  <li class="list-group-item" style =" background:  #004080;">
+															      <p style="color: yellow;"> Facebook:
+										                                <a class="text-primary" href="https://www.facebook.com/unjuvirtual">https://www.facebook.com/unjuvirtual</a> 
+										                            </p> 						  
+															  </li>
+															  <li class="list-group-item" style =" background:  #004080;">
+															     <p style="color: yellow;"> Instagram:
+									                                 <a class="text-primary" href="https://www.instagram.com/fiunju/">https://www.instagram.com/fiunju/</a> 
+									                            </p>   												  
+															  </li>
+													</ul>		                                
+				                  </div>
 			                    
-			                       </div>
-			                       
-			                             <div class="row">
-			                                <div class="col"></div>
-			                                <div class="col autor">
-			                                     <h6>© 2024 | Universidad Grandeza | Gerardo Ramos</h6> 
-			                                </div>
-			                                <div class="col"></div>
-			                             </div>
-			
-			                     </div>	
-                 </footer>
+			               </div>                   
+			                            <h6 style="text-align: center; color: yellow;">© 2024 | Universidad Nacional de Jujuy | Gerardo Ramos</h6> 
+			               </div>	
+                 </footer> 
 		</body>
 </html>
